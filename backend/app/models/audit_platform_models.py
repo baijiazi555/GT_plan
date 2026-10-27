@@ -55,6 +55,7 @@ class AdjustmentType(str, enum.Enum):
     """调整分录类型"""
     aje = "aje"
     rje = "rje"
+    cf = "cf"  # DB 枚举已有此值（并发副本写入），ORM 缺成员会导致装载该行 LookupError
 
 
 class ReviewStatus(str, enum.Enum):
@@ -86,6 +87,11 @@ class ReportType(str, enum.Enum):
     balance_sheet = "balance_sheet"
     income_statement = "income_statement"
     cash_flow = "cash_flow"
+    # 以下 4 值 DB 枚举已有（并发副本写入），ORM 缺成员会导致装载 report_line_mapping 该行 LookupError
+    cash_flow_statement = "cash_flow_statement"
+    equity_statement = "equity_statement"
+    cash_flow_supplement = "cash_flow_supplement"
+    impairment_provision = "impairment_provision"
 
 
 class ReportLineMappingType(str, enum.Enum):

@@ -23,6 +23,9 @@ class UserRole(str, enum.Enum):
     qc = "qc"
     eqcr = "eqcr"  # EQCR 技术复核人（DB userrole 枚举已含此值，此处对齐消除 schema 漂移）
     readonly = "readonly"
+    # DB 枚举已有此值（并发副本 gt-new-plan 写入，真实用户行存在），
+    # 本仓库 ORM 缺成员导致 SELECT users 装载该行时抛 LookupError
+    site_lead = "site_lead"
 
 
 class ProjectType(str, enum.Enum):
@@ -34,6 +37,9 @@ class ProjectType(str, enum.Enum):
     internal_control = "internal_control"
     capital_verification = "capital_verification"
     tax_audit = "tax_audit"
+    # DB 枚举已有此值（V171 之前由并发副本 gt-new-plan 写入真实项目行），
+    # 本仓库 ORM 缺成员导致 select(Project) 装载该行时抛 LookupError → /api/projects 500
+    enterprise_income_tax_settlement = "enterprise_income_tax_settlement"
 
 
 class ProjectStatus(str, enum.Enum):

@@ -1,0 +1,2 @@
+-- R210: 回滚 V210
+ALTER TABLE service_identities ALTER COLUMN id DROP DEFAULT;

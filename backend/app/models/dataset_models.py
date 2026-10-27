@@ -73,6 +73,7 @@ class OutboxStatus(str, enum.Enum):
     pending = "pending"
     published = "published"
     failed = "failed"
+    processing = "processing"  # DB 枚举已有此值（并发副本写入），ORM 缺成员会导致装载该行 LookupError
 
 
 # ---------------------------------------------------------------------------

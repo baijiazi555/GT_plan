@@ -77,6 +77,7 @@ declare module 'vue' {
     AuditProgramPanel: typeof import('./components/collaboration/AuditProgramPanel.vue')['default']
     AuditReportTab: typeof import('./components/template-library/AuditReportTab.vue')['default']
     AuditTypeSelector: typeof import('./components/extension/AuditTypeSelector.vue')['default']
+    AuditYearMissingResult: typeof import('./components/common/AuditYearMissingResult.vue')['default']
     B22AControlItemDialog: typeof import('./components/workpaper/B22AControlItemDialog.vue')['default']
     B23ControlPointDialog: typeof import('./components/workpaper/B23ControlPointDialog.vue')['default']
     B50AccountRiskDialog: typeof import('./components/workpaper/B50AccountRiskDialog.vue')['default']
